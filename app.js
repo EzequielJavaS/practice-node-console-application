@@ -1,14 +1,15 @@
+const { inquirerMenu, pausa } = require('./helpers/inquirer');
 require('colors');
-const { mostrarMenu, pausa } = require('./helpers/mensajes');
 
 console.clear();
 
 const main = async() => {
     let opt = '';
     do {
-        opt = await mostrarMenu(); // Await= Espérate a que se ejecute esto.
+        opt = await inquirerMenu() ; // Await= Espérate a que se ejecute esto.
         console.log({ opt });
-        ( opt !== '0')&& await pausa(); //Hace que pida un ENTER para continuar.
+
+        await pausa();
     } while( opt !=='0');
 }
 
