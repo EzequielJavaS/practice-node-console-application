@@ -1,3 +1,4 @@
+const Tarea = require("./tarea");
 
 /**
  *  _listado:
@@ -10,5 +11,14 @@ class Tareas {
     constructor(){
         this._listado = {}
     }
+
+    crearTarea( desc = '') { //Recibe la descripción y con ella ya puede crear la tarea
+        const tarea = new Tarea(desc);//Ahora hay que guardar la tarea recien creada en Tareas. Lo que hago insertar una nueva propiedad a la propiedad _listado. Cada tarea será una propiedad del objeto -Listado.
+
+        this._listado[tarea.id] = tarea;
+    }
 }
 module.exports = Tareas;
+
+
+
